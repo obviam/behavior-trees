@@ -30,6 +30,13 @@ public class Sequence extends Routine {
     }
 
     @Override
+    public void reset() {
+        for (Routine routine : routines) {
+            routine.reset();
+        }
+    }
+
+    @Override
     public void start() {
         // start the current sequence
         super.start();
@@ -65,7 +72,7 @@ public class Sequence extends Routine {
         if (type.equals(SequenceType.Or)) {
             // check if the routine is successful and finish the sequence
             if (currentRoutine.isSuccess()) {
-                this.state = RoutineState.Success;
+                succeed();
                 return;
             }
         }

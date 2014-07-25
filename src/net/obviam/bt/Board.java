@@ -15,6 +15,14 @@ public class Board {
         this.height = height;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     public void addDroid(Droid droid) {
         if (isTileWalkable(droid.getX(), droid.getY())) {
             droids.add(droid);

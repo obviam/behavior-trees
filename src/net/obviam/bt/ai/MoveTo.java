@@ -5,8 +5,8 @@ import net.obviam.bt.Droid;
 
 public class MoveTo extends Routine {
 
-    final int destX;
-    final int destY;
+    final protected int destX;
+    final protected int destY;
 
     public MoveTo(Droid droid, Board board, int destX, int destY) {
         super(droid, board);
@@ -14,10 +14,14 @@ public class MoveTo extends Routine {
         this.destY = destY;
     }
 
+    public void reset() {
+        start();
+    }
+
     @Override
     public void act(Droid droid, Board board) {
         if (isRunning() && !droid.isAlive()) {
-            this.state = RoutineState.Failure;
+            fail();
             return;
         }
         if (isRunning() && !isAtDestination()) {
@@ -41,7 +45,7 @@ public class MoveTo extends Routine {
             }
         }
         if (isAtDestination()) {
-            this.state = RoutineState.Success;
+            succeed();
         }
     }
 

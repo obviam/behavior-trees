@@ -28,4 +28,16 @@ public class Routines {
         return new MoveTo(droid, board, x, y);
     }
 
+    public static Routine repeatInfinite(Routine routine) {
+        return new Repeat(routine);
+    }
+
+    public static Routine repeat(Routine routine, int times) {
+        return new Repeat(routine, times);
+    }
+
+    public static Routine wander(Droid droid, Board board) {
+        return new Wander(droid, board);
+    }
+
 }

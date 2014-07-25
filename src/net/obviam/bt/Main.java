@@ -20,17 +20,26 @@ public class Main {
 //        frame.setVisible(true);
 
         Board board = new Board(25, 25);
-        Droid droid = new Droid("Droid_1", 2, 2, 10, 1, 3);
-        Routine brain = Routines.sequenceAnd(droid, board,
-            Routines.moveTo(droid, board, 5, 10),
-            Routines.moveTo(droid, board, 15, 12),
-            Routines.moveTo(droid, board, 2, 4)
+        Droid droid1 = new Droid("Droid_1", 2, 2, 10, 1, 3);
+        Droid droid2 = new Droid("Droid_2", 10, 10, 10, 2, 2);
+
+        Routine brain1 = Routines.sequenceAnd(droid1, board,
+            Routines.moveTo(droid1, board, 5, 10),
+            Routines.moveTo(droid1, board, 15, 12),
+            Routines.moveTo(droid1, board, 2, 4)
         );
-        droid.setRoutine(brain);
+        droid1.setRoutine(brain1);
+
+        Routine brain2 = Routines.sequenceAnd(droid2, board,
+            Routines.repeat(Routines.wander(droid2, board), 4)
+        );
+        droid2.setRoutine(brain2);
 
         for (int i = 0; i < 30; i++) {
-            System.out.println(droid.toString());
-            droid.update();
+            System.out.println(droid1.toString());
+            System.out.println(droid2.toString());
+            droid1.update();
+            droid2.update();
         }
     }
 }
