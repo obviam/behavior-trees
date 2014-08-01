@@ -87,6 +87,10 @@ public class Droid {
         return name;
     }
 
+    public void setBoard(Board board) {
+            this.board = board;
+     }
+
     @Override
     public String toString() {
         return "Droid{" +

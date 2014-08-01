@@ -26,10 +26,11 @@ public class Board {
     public void addDroid(Droid droid) {
         if (isTileWalkable(droid.getX(), droid.getY())) {
             droids.add(droid);
+            droid.setBoard(this);
         }
     }
 
-    private boolean isTileWalkable(int x, int y) {
+    public boolean isTileWalkable(int x, int y) {
         for (Droid droid : droids) {
             if (droid.getX() == x && droid.getY() == y) {
                 return false;
