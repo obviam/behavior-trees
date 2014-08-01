@@ -8,8 +8,8 @@ public class MoveTo extends Routine {
     final protected int destX;
     final protected int destY;
 
-    public MoveTo(Droid droid, Board board, int destX, int destY) {
-        super(droid, board);
+    public MoveTo(int destX, int destY) {
+        super();
         this.destX = destX;
         this.destY = destY;
     }
@@ -24,12 +24,12 @@ public class MoveTo extends Routine {
             fail();
             return;
         }
-        if (isRunning() && !isAtDestination()) {
-            moveDroid();
+        if (isRunning() && !isDroidAtDestination(droid)) {
+            moveDroid(droid);
         }
     }
 
-    private void moveDroid() {
+    private void moveDroid(Droid droid) {
         if (destY != droid.getY()) {
             if (destY > droid.getY()) {
                 droid.setY(droid.getY() + 1);
@@ -44,12 +44,12 @@ public class MoveTo extends Routine {
                 droid.setX(droid.getX() - 1);
             }
         }
-        if (isAtDestination()) {
+        if (isDroidAtDestination(droid)) {
             succeed();
         }
     }
 
-    private boolean isAtDestination() {
+    private boolean isDroidAtDestination(Droid droid) {
         return destX == droid.getX() && destY == droid.getY();
     }
 }

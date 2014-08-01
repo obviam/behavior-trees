@@ -10,14 +10,14 @@ public class Repeat extends Routine {
     private int originalTimes;
 
     public Repeat(Routine routine) {
-        super(routine.droid, routine.board);
+        super();
         this.routine = routine;
         this.times = -1; // infinite
         this.originalTimes = times;
     }
 
     public Repeat(Routine routine, int times) {
-        super(routine.droid, routine.board);
+        super();
         if (times < 1) {
             throw new RuntimeException("Can't repeat negative times.");
         }

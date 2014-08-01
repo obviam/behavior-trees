@@ -8,6 +8,7 @@ import java.util.Random;
 public class Wander extends Routine {
 
     private static Random random = new Random();
+    private final Board board;
     private MoveTo moveTo;
 
     @Override
@@ -17,12 +18,13 @@ public class Wander extends Routine {
     }
 
     public void reset() {
-        this.moveTo = new MoveTo(droid, board, random.nextInt(board.getWidth()), random.nextInt(board.getHeight()));
+        this.moveTo = new MoveTo(random.nextInt(board.getWidth()), random.nextInt(board.getHeight()));
     }
 
-    public Wander(Droid droid, Board board) {
-        super(droid, board);
-        this.moveTo = new MoveTo(droid, board, random.nextInt(board.getWidth()), random.nextInt(board.getHeight()));
+    public Wander(Board board) {
+        super();
+        this.board = board;
+        this.moveTo = new MoveTo(random.nextInt(board.getWidth()), random.nextInt(board.getHeight()));
     }
 
     @Override

@@ -13,8 +13,8 @@ public class Sequence extends Routine {
         And, Or
     }
 
-    public Sequence(Droid droid, Board board, SequenceType type) {
-        super(droid, board);
+    public Sequence(SequenceType type) {
+        super();
         this.type = type;
         this.currentRoutine = null;
     }

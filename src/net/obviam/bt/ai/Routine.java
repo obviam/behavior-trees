@@ -11,26 +11,13 @@ public abstract class Routine {
         Running
     }
 
-    protected final Board board;
-    protected final Droid droid;
     protected RoutineState state;
 
-    protected Routine(Droid droid, Board board) {
-        this.droid = droid;
-        this.board = board;
+    protected Routine() {
     }
-
-    public Droid getDroid() {
-        return droid;
-    }
-
-    public Board getBoard() {
-        return board;
-    }
-
 
     public void start() {
-        System.out.println(">>> Starting routine: " + this.getClass().getSimpleName() + " for droid: " + droid.getName());
+        System.out.println(">>> Starting routine: " + this.getClass().getSimpleName());
         this.state = RoutineState.Running;
     }
 
@@ -39,12 +26,12 @@ public abstract class Routine {
     public abstract void act(Droid droid, Board board);
 
     protected void succeed() {
-        System.out.println(">>> Routine: " + this.getClass().getSimpleName() + " SUCCEEDED for droid: " + droid.getName());
+        System.out.println(">>> Routine: " + this.getClass().getSimpleName() + " SUCCEEDED");
         this.state = RoutineState.Success;
     }
 
     protected void fail() {
-        System.out.println(">>> Routine: " + this.getClass().getSimpleName() + " FAILED for droid: " + droid.getName());
+        System.out.println(">>> Routine: " + this.getClass().getSimpleName() + " FAILED");
         this.state = RoutineState.Failure;
     }
 

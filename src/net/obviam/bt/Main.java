@@ -23,15 +23,15 @@ public class Main {
         Droid droid1 = new Droid("Droid_1", 2, 2, 10, 1, 3);
         Droid droid2 = new Droid("Droid_2", 10, 10, 10, 2, 2);
 
-        Routine brain1 = Routines.sequenceAnd(droid1, board,
-            Routines.moveTo(droid1, board, 5, 10),
-            Routines.moveTo(droid1, board, 15, 12),
-            Routines.moveTo(droid1, board, 2, 4)
+        Routine brain1 = Routines.sequenceAnd(
+            Routines.moveTo(5, 10),
+            Routines.moveTo(15, 12),
+            Routines.moveTo(2, 4)
         );
         droid1.setRoutine(brain1);
 
-        Routine brain2 = Routines.sequenceAnd(droid2, board,
-            Routines.repeat(Routines.wander(droid2, board), 4)
+        Routine brain2 = Routines.sequenceAnd(
+            Routines.repeat(Routines.wander(board), 4)
         );
         droid2.setRoutine(brain2);
 
