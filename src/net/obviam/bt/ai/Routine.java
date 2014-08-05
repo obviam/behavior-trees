@@ -13,8 +13,7 @@ public abstract class Routine {
 
     protected RoutineState state;
 
-    protected Routine() {
-    }
+    protected Routine() { }
 
     public void start() {
         System.out.println(">>> Starting routine: " + this.getClass().getSimpleName());
