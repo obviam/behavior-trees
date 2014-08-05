@@ -38,4 +38,8 @@ public class Board {
         }
         return true;
     }
+
+    public List<Droid> getDroids() {
+        return droids;
+    }
 }
