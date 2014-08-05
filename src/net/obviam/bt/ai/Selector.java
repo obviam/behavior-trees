@@ -7,9 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Sequence extends Routine {
+public class Selector extends Routine {
 
-    public Sequence() {
+    public Selector() {
         super();
         this.currentRoutine = null;
     }
@@ -50,12 +50,9 @@ public class Sequence extends Routine {
             return;
         }
 
-        // check if there are more routines in the queue
-        // and if there are then step forward or set the sequence
-        // state if finished
-        if (routineQueue.peek() == null) {
-            // we processed the last routine in the sequence so set the state to that
-            this.state = currentRoutine.getState();
+        // check if the routine is successful and finish the sequence
+        if (currentRoutine.isSuccess()) {
+            succeed();
             return;
         }
 
