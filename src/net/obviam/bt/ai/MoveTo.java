@@ -20,12 +20,14 @@ public class MoveTo extends Routine {
 
     @Override
     public void act(Droid droid, Board board) {
-        if (isRunning() && !droid.isAlive()) {
-            fail();
-            return;
-        }
-        if (isRunning() && !isDroidAtDestination(droid)) {
-            moveDroid(droid);
+        if (isRunning()) {
+            if (!droid.isAlive()) {
+                fail();
+                return;
+            }
+            if (!isDroidAtDestination(droid)) {
+                moveDroid(droid);
+            }
         }
     }
 
