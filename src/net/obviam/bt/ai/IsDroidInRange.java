@@ -28,6 +28,6 @@ public class IsDroidInRange extends Routine {
 
     private boolean isInRange(Droid droid, Droid enemy) {
         return (Math.abs(droid.getX() - enemy.getX()) <= droid.getRange()
-                || Math.abs(droid.getY() - enemy.getY()) < droid.getRange());
+                && Math.abs(droid.getY() - enemy.getY()) <= droid.getRange());
     }
 }
